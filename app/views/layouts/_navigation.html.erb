@@ -8,13 +8,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+      <strong><%= link_to 'RUSSIAN DOLLS', root_path, class: 'navbar-brand' %></strong>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <%= render 'layouts/navigation_links' %>
         <%= render 'layouts/nav_links_for_auth' %>
       </ul>
+        <% if !user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'Sign Up', new_user_registration_path, class: 'glyphicon glyphicon-user' %></li>
+            <li><%= link_to 'Login', new_user_session_path, class: "glyphicon glyphicon-log-in" %></li>
+          </ul>
+        <%end%>
     </div>
   </div>
 </nav>
